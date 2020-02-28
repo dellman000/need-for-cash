@@ -4,19 +4,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coding-2-try-phaser-dellman000/devassets/citations.md"
   },
   {
-    "revision": "14515f2b3f9ceff988a5d0235df9d720",
+    "revision": "c5931788157c31d74dc1d3d473c25cb9",
     "url": "/coding-2-try-phaser-dellman000/devassets/little_man.png"
   },
   {
-    "revision": "c5a6e22c6392b5b7988e",
-    "url": "/coding-2-try-phaser-dellman000/devgen.main.66927eef385730d47558.bundle.js"
+    "revision": "7629cf51b6cee6fac69162ced0dea4eb",
+    "url": "/coding-2-try-phaser-dellman000/devassets/player.png"
+  },
+  {
+    "revision": "bf5d838b4c065a069e1c",
+    "url": "/coding-2-try-phaser-dellman000/devgen.main.0dbded3fe3f377e5eec2.bundle.js"
   },
   {
     "revision": "201b65bee9df6270f739",
     "url": "/coding-2-try-phaser-dellman000/devgen.vendors.a047ee0740c7d21714d9.bundle.js"
   },
   {
-    "revision": "fa19d7d16431f8d5621ba03a5fae514b",
+    "revision": "bdf67d178c4952363ca86420572c3238",
     "url": "/coding-2-try-phaser-dellman000/devindex.html"
   },
   {
