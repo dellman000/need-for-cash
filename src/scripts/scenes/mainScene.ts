@@ -10,38 +10,41 @@ export default  class MainScene extends Phaser.Scene {
   manObject: ManObject;
   private hero:Hero;
   guy: Phaser.GameObjects.Image;
+  player: Phaser.GameObjects.Image;
+  guy2: Phaser.GameObjects.Image;
+  cursorKeys: Phaser.Types.Input.Keyboard.CursorKeys;
   constructor() {
     super({ key: 'MainScene' });
     
   }
   create() {
-   // this.exampleObject = new ExampleObject(this, 0, 0);
-  this.manObject = new ManObject(this,100,100);
-  this.hero = new Hero(this,150,300);  
-  
- this.guy= this.add.image(100,100,'guy');
+   // this.exampleObject = new ExampleObject(this, 0, 0);  
+      this.guy= this.add.image(100,100,'guy');
+      this.guy2= this.add.image(110,100,'guy2');
+      this.cursorKeys=this.input.keyboard.createCursorKeys();
+
+    this.player=this.add.image(200,200,'player')
 
   }
 
  
-  moveHero(hero:Hero){
+  moveHero(hero:Phaser.GameObjects.Image){
     this.input.keyboard.addListener('w',this.Up);
     this.input.keyboard.addListener('s',this.Up);
     }
-
   Up(){
-    this.hero.x+=2;
+    this.player.x+=2;
   }
   Down(){
-    this.hero.x-=2;
+    this.player.x-=2;
   }
 
-  resetEnemy(enemy:ManObject){
+  resetEnemy(enemy:Phaser.GameObjects.Image){
     enemy.y=Math.random() *25;
     
     enemy.x=Math.random() *300;
   }
-  moveEnemy(enemy:ManObject,speed:number){
+  moveEnemy(enemy:Phaser.GameObjects.Image,speed:number){
     enemy.y+=speed;
 
     if (enemy.y>400){
@@ -49,21 +52,31 @@ export default  class MainScene extends Phaser.Scene {
     }
   }
 
-  deleteHero(){
-    if(  ((this.hero.x >=this.manObject.x-25) && (this.hero.x <=this.manObject.x+25) ) &&( this.hero.y==this.manObject.y)){
-    
-      delete this.hero;
+  
+  moveplayer(){
+    if(this.cursorKeys.up?.isDown){
+      this.player.y-=5;
+      
+    }
+    if(this.cursorKeys.down?.isDown){
+      this.player.y+=5;
+    }
+    if(this.cursorKeys.left?.isDown){
+      this.player.x-=5;
+    }
+    if(this.cursorKeys.right?.isDown){
+      this.player.x+=5;
     }
   }
-  
 
  
 
   update() {
  
-  this.moveHero(this.hero);
-  this.moveEnemy(this.manObject,15);   
-  this.deleteHero();
+ this.moveEnemy(this.guy,10);
+ this.moveEnemy(this.guy2,10);
+ this.moveplayer();
+
   }
 
   
