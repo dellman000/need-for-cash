@@ -4,12 +4,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "assets/citations.md"
   },
   {
-    "revision": "b1112293039b46688a30694278f65b83",
+    "revision": "c5931788157c31d74dc1d3d473c25cb9",
+    "url": "assets/little_man.png"
+  },
+  {
+    "revision": "7629cf51b6cee6fac69162ced0dea4eb",
+    "url": "assets/player.png"
+  },
+  {
+    "revision": "ba045018bcfa8dab80e3a71d6ae30d37",
     "url": "index.html"
   },
   {
-    "revision": "02a895de10ed3cc12fec",
-    "url": "main.e79e24a325fd41efd7e2.bundle.js"
+    "revision": "541d2fc77f712865cd5f",
+    "url": "main.a7746266293aaf300638.bundle.js"
   },
   {
     "revision": "b4321e6f6a88a978d4964c0d1b432b03",
