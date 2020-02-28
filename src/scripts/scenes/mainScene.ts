@@ -9,6 +9,7 @@ export default  class MainScene extends Phaser.Scene {
   
   manObject: ManObject;
   private hero:Hero;
+  guy: Phaser.GameObjects.Image;
   constructor() {
     super({ key: 'MainScene' });
     
@@ -16,7 +17,10 @@ export default  class MainScene extends Phaser.Scene {
   create() {
    // this.exampleObject = new ExampleObject(this, 0, 0);
   this.manObject = new ManObject(this,100,100);
-  this.hero = new Hero(this,150,300);    
+  this.hero = new Hero(this,150,300);  
+  
+ this.guy= this.add.image(100,100,'guy');
+
   }
 
  

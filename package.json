@@ -1,8 +1,8 @@
 {
-  "name": "educational-phaser-game-template",
+  "name": "coding-2-try-phaser-dellman000",
   "version": "0.0.1",
   "description": "Phaser 3 starter template for educational games, using TypeScript, webpack, and Github Pages.",
-  "homepage": "https://github.com/acbart/educational-phaser-game-template#readme",
+  "homepage": "https://github.com/UD-CISC374/coding-2-try-phaser-dellman000.git",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
@@ -26,17 +26,17 @@
     "starter"
   ],
   "author": {
-    "name": "Austin Cory Bart",
-    "url": "https://github.com/acbart"
+    "name": "Kendell Rennie",
+    "url": "https://github.com/UD-CISC374"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/acbart/educational-phaser-game-template.git"
+    "url": "https://github.com/UD-CISC374/coding-2-try-phaser-dellman000.git"
   },
   "template": {
-    "name": "educational-phaser-game-template",
-    "url": "https://github.com/acbart/educational-phaser-game-template",
-    "author": "Austin Cory Bart (https://github.com/acbart)"
+    "name": "coding-2-try-phaser-dellman000",
+    "url": "https://github.com/UD-CISC374/coding-2-try-phaser-dellman000.git",
+    "author": "kendell Rennie (https://github.com/UD-CISC374)"
   },
   "engines": {
     "node": ">=8.0.0"
