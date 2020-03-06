@@ -16,15 +16,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coding-2-try-phaser-dellman000/betaassets/player.png"
   },
   {
-    "revision": "ffbf42d7c4a3522e84bf",
-    "url": "/coding-2-try-phaser-dellman000/betagen.main.57f5094edaf87dd3e855.bundle.js"
+    "revision": "8947b354d9a1c2829601",
+    "url": "/coding-2-try-phaser-dellman000/betagen.main.93e8b86d9594d33cb550.bundle.js"
   },
   {
     "revision": "201b65bee9df6270f739",
     "url": "/coding-2-try-phaser-dellman000/betagen.vendors.a047ee0740c7d21714d9.bundle.js"
   },
   {
-    "revision": "b27be30a9560204d246be7328ed81b6f",
+    "revision": "c1a5b6e2b62ef4bfb623fcd406394ef8",
     "url": "/coding-2-try-phaser-dellman000/betaindex.html"
   },
   {
