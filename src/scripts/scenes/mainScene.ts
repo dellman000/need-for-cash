@@ -24,6 +24,8 @@ health:number;
   cursorKeys: Phaser.Types.Input.Keyboard.CursorKeys;
   text1: Phaser.GameObjects.Text;
   showtime2: number;
+  Background: Phaser.GameObjects.TileSprite;
+  Background2: Phaser.GameObjects.TileSprite;
 
   constructor() {
     super({ key: 'MainScene' });
@@ -33,10 +35,16 @@ health:number;
    // this.exampleObject = new ExampleObject(this, 0, 0);  
      // this.guy= this.add.image(100,100,'guy');
       //this.guy2= this.add.image(110,100,'guy2');
+     //this.Background=this.add.image(0,0,'background');
      
-    this.showtime=5;
+     this.Background=this.add.tileSprite(0,0,400,400,'background');
+     this.Background2=this.add.tileSprite(1,1,612,2020,'stars');
+     //this.Background2.setScale(500,2020);
+     this.Background.setOrigin(0,0);
+     this.Background2.setOrigin(0,0);
+    this.showtime=60;
     this.showtime2=this.showtime;
-    this.text1=this.add.text(100,100,this.showtime.toString(),{font:'25px Arial',fill:'black'});
+    
       this.farRight=false;
       this.health=60;
      
@@ -44,7 +52,7 @@ health:number;
       this.guy2=this.add.rectangle(100,100,10,10,0xff0000); 
      
       this.Maker=this.add.image(0,50,'mothership');
-      
+      this.text1=this.add.text(0,50,this.showtime.toString(),{font:'40px Arial',fill:'white'});
       this.cursorKeys=this.input.keyboard.createCursorKeys();
 
       
@@ -72,15 +80,18 @@ health:number;
        if(this.showtime<=0){
         this.wingame();
        }
+       this.text1.x=this.Maker.x-25;
+       this.text1.y=this.Maker.y-25;
+       
 
      
 
     }
     moveMaker(object:Phaser.GameObjects.Image,right:boolean){
-      if(object.x<this.player.x+Math.random()*30 && right== false){
+      if(object.x<this.player.x/*+Math.random()*30*/ && right== false){
         object.x+=5;
       }
-      else if(object.x>=this.player.x+Math.random()*30){
+      else if(object.x>=this.player.x+Math.random()*30 ){
         right=true;  
         object.x-=5;
       }
@@ -105,8 +116,8 @@ health:number;
      enemy.x=this.player.x;
    }
    else{
-    enemy.y=this.Maker.y+Math.random()*50;
-    enemy.x=this.Maker.x+Math.random()*50;
+    enemy.y=this.Maker.y+Math.random()*70;
+    enemy.x=this.Maker.x+Math.random()*70;
     
    }
    
@@ -118,12 +129,10 @@ health:number;
     //enemy.x=Math.random() *300;
   }
   moveEnemy(enemy:Phaser.GameObjects.Rectangle,speed:number){
-    if(this.health==60){
-      enemy.y+=speed=speed*.75;
-    }
-    else{
+
+    
     enemy.y+=speed; 
-    }
+    
     if (enemy.y>400){
       this.resetEnemy(enemy);
     }
@@ -236,20 +245,25 @@ var LeftBOUNDS=10;
     this.scene.start('WinScene');
   }
 
- 
+ self_heal(){
+   if(this.health<60){
+     this.health+=.005;
+   }
+ }
 
   update() {
  
    // this.add.text(10,10,'hhbjbkb',{font:"100 px Arial" ,fill:"black"});
-   this.TheTime();
-
+   this.self_heal();
+this.Background.tilePositionY-=0.5;
+this.Background2.tilePositionY-=0.7;
 this.Pain(this.guy);
 this.Pain(this.guy2);
  this.moveEnemy(this.guy,9);
  this.moveEnemy(this.guy2,10);
  this.moveplayer();
  this.moveMaker(this.Maker,this.farRight);
-
+ this.TheTime();
   }
 
   
