@@ -16,15 +16,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coding-2-try-phaser-dellman000/betaassets/player.png"
   },
   {
-    "revision": "8947b354d9a1c2829601",
-    "url": "/coding-2-try-phaser-dellman000/betagen.main.93e8b86d9594d33cb550.bundle.js"
+    "revision": "31e52d2a8c8b576ed09f62ca03ca3ba8",
+    "url": "/coding-2-try-phaser-dellman000/betaassets/space.png"
+  },
+  {
+    "revision": "39466ec7ef76f755ca93",
+    "url": "/coding-2-try-phaser-dellman000/betagen.main.9817574e7198fecbc1f5.bundle.js"
   },
   {
     "revision": "201b65bee9df6270f739",
     "url": "/coding-2-try-phaser-dellman000/betagen.vendors.a047ee0740c7d21714d9.bundle.js"
   },
   {
-    "revision": "c1a5b6e2b62ef4bfb623fcd406394ef8",
+    "revision": "e40aedfed75c0270d37773daf1be0dfe",
     "url": "/coding-2-try-phaser-dellman000/betaindex.html"
   },
   {
