@@ -3,7 +3,9 @@ import MainScene from './scenes/mainScene';
 import PreloadScene from './scenes/preloadScene';
 import DeathScene from './scenes/deathScene';
 import WinScene from './scenes/WinScene';
+import TitleScene from './scenes/titleScreen';
 import GameConfig = Phaser.Types.Core.GameConfig;
+
 
 const DEFAULT_WIDTH = 400;
 const DEFAULT_HEIGHT = 400;
@@ -18,7 +20,7 @@ const config: GameConfig = {
         width: DEFAULT_WIDTH,
         height: DEFAULT_HEIGHT
     },
-    scene: [PreloadScene, MainScene,DeathScene,WinScene],
+    scene: [PreloadScene,TitleScene,MainScene,DeathScene,WinScene],
     physics: {
         default: 'arcade',
         arcade: {

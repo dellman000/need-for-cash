@@ -9,6 +9,7 @@ export default class PreloadScene extends Phaser.Scene {
   }
 
   preload() {
+    this.add.text(50,100,"Loading...",{font:'50px Arial',fill:'black'});
       this.load.image('mothership',"assets/mothership.png");
       this.load.image('background',"assets/space2.png");
       this.load.image("guy2","assets/little_man.png");
@@ -18,7 +19,7 @@ export default class PreloadScene extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start('MainScene');
+    this.scene.start('TitleScene');
     
     
     

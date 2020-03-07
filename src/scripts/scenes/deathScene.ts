@@ -24,7 +24,7 @@ export default class DeathScene extends Phaser.Scene {
       }
       Again(){
         if(this.cursorKeys1.shift?.isDown){
-            this.scene.start('PreloadScene');
+            this.scene.start('MainScene');
       } 
       else{
         return;

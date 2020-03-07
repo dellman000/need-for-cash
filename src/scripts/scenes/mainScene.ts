@@ -26,6 +26,7 @@ health:number;
   showtime2: number;
   Background: Phaser.GameObjects.TileSprite;
   Background2: Phaser.GameObjects.TileSprite;
+  guy3: Phaser.GameObjects.Rectangle;
 
   constructor() {
     super({ key: 'MainScene' });
@@ -50,6 +51,7 @@ health:number;
      
       this.guy=this.add.rectangle(200,100,10,10,0xFF0000); 
       this.guy2=this.add.rectangle(100,100,10,10,0xff0000); 
+      this.guy3=this.add.rectangle(100,101,10,10,0xff0000);
      
       this.Maker=this.add.image(0,50,'mothership');
       this.text1=this.add.text(0,50,this.showtime.toString(),{font:'40px Arial',fill:'white'});
@@ -88,7 +90,7 @@ health:number;
 
     }
     moveMaker(object:Phaser.GameObjects.Image,right:boolean){
-      if(object.x<this.player.x/*+Math.random()*30*/ && right== false){
+      if(object.x<this.player.x/*+Math.random()*30 */&& right== false){
         object.x+=5;
       }
       else if(object.x>=this.player.x+Math.random()*30 ){
@@ -113,9 +115,11 @@ health:number;
   resetEnemy(enemy:Phaser.GameObjects.Rectangle){
    //enemy.y+=speed;  
     if(this.Maker.x==this.player.x){
-     enemy.x=this.player.x;
+     enemy.x=this.player.x+1;
+     enemy.y=this.Maker.y;
    }
    else{
+     //Phaser.Math.RandomXY()
     enemy.y=this.Maker.y+Math.random()*70;
     enemy.x=this.Maker.x+Math.random()*70;
     
@@ -131,12 +135,13 @@ health:number;
   moveEnemy(enemy:Phaser.GameObjects.Rectangle,speed:number){
 
     
-    enemy.y+=speed; 
+    enemy.y+=speed;
+    enemy.angle+=10;
     
     if (enemy.y>400){
       this.resetEnemy(enemy);
     }
-    enemy.angle+=6;
+   
   }
 
  
@@ -249,18 +254,23 @@ var LeftBOUNDS=10;
    if(this.health<60){
      this.health+=.005;
    }
+   if(this.health>=60){
+     this.player.fillColor=0x0000ff; 
+   }
  }
 
   update() {
  
    // this.add.text(10,10,'hhbjbkb',{font:"100 px Arial" ,fill:"black"});
-   this.self_heal();
+this.self_heal();
 this.Background.tilePositionY-=0.5;
 this.Background2.tilePositionY-=0.7;
 this.Pain(this.guy);
 this.Pain(this.guy2);
+this.Pain(this. guy3);
  this.moveEnemy(this.guy,9);
  this.moveEnemy(this.guy2,10);
+ this.moveEnemy(this.guy3,Phaser.Math.Between(8,20));
  this.moveplayer();
  this.moveMaker(this.Maker,this.farRight);
  this.TheTime();
