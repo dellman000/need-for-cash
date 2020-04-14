@@ -22,6 +22,7 @@ export default class Scene_Mode_Select extends Phaser.Scene {
     
     //this.rec.on('pointerdown',()=> {this.Select_mode();});
     //bjdklvnsdkjvncdsk
+    //this is my change
     this.text_Survival.on('pointerdown',()=> {this.Select_mode();});
     }
   
