@@ -21,6 +21,7 @@ export default class Scene_Mode_Select extends Phaser.Scene {
     this.text_Survival=this.add.text(50,100,"this is the Scene_Mode_Select",{font:'22px Arial',fill:'black'}).setInteractive();
     
     //this.rec.on('pointerdown',()=> {this.Select_mode();});
+    //bjdklvnsdkjvncdsk
     this.text_Survival.on('pointerdown',()=> {this.Select_mode();});
     }
   
