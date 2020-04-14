@@ -4,6 +4,7 @@ export default class Scene_Status extends Phaser.Scene {
     }
   
     create() {
+        
     }
   
     update() {
