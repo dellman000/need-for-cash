@@ -20,6 +20,6 @@ export default class Car_Garage_Scene extends Phaser.Scene {
 
   }
 
-  update() {
+  update() { 
   }
 }
