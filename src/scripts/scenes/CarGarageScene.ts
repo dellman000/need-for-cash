@@ -1,14 +1,27 @@
 import ExampleObject from '../objects/exampleObject';
+//import * as UiTools from '../scenes/phaser-ui-tools.js';
 
 export default class Car_Garage_Scene extends Phaser.Scene {
   
   garage: Phaser.GameObjects.Image;
   pully: Phaser.GameObjects.Image;
-
+  turn_button: any;
+  store_tab: Phaser.GameObjects.Rectangle;
+  profit_tab: Phaser.GameObjects.Rectangle;
+  
+  
+  
+  
   
 
   constructor() {
     super({ key: 'Car_Garage' });
+  }
+  enterStore(){
+    this.scene.bringToTop('Store');
+  }
+  enterProfitTab(){
+    this.scene.bringToTop('ProfitScene');
   }
 
   create() {
@@ -18,8 +31,39 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     this.pully=this.add.image(0,0,'pully');
     this.pully.setOrigin(0,0);
 
+    
+    this.turn_button=this.add.image(700,0,'turn');
+    this.turn_button.setOrigin(0,0);
+
+    
+
+    this.store_tab=this.add.rectangle(0,100,50,100,0xCFA82F);
+    this.store_tab.setInteractive();
+
+    this.profit_tab=this.add.rectangle(1870,500,50,100,0x2BB412);
+    this.profit_tab.setInteractive();
+    
+    this.scene.launch('ProfitScene');
+    this.scene.launch('Store');
+    this.scene.bringToTop('Car_Garage');
+
+    
+    
+
+
+
+    this.profit_tab.on('pointerdown',()=> {this.enterProfitTab();});
+
+    this.store_tab.on('pointerdown',()=> {this.enterStore();});
+
+
+
+  
+    
   }
 
-  update() { 
+
+
+  update() {  
   }
 }
