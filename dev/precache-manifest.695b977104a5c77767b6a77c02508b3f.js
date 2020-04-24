@@ -28,15 +28,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/devassets/profit_folders.png"
   },
   {
-    "revision": "b08d1f3da4be9f76394d",
-    "url": "/need-for-cash/devgen.main.f0f21e9f726676f94ad0.bundle.js"
+    "revision": "a71a8247cf7001c68cb7",
+    "url": "/need-for-cash/devgen.main.d8a3a3504cd451ea9530.bundle.js"
   },
   {
     "revision": "8857aeb5de5dfb8b65cf",
     "url": "/need-for-cash/devgen.vendors.a830139833da967256f6.bundle.js"
   },
   {
-    "revision": "09365789165d6bcb57a50ba7cc56dd94",
+    "revision": "21455a1eda7241c3ec05b7c1b0f636f2",
     "url": "/need-for-cash/devindex.html"
   },
   {
