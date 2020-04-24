@@ -16,6 +16,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/devassets/folders_small.png"
   },
   {
+    "revision": "aa277cb0faa8b4eb64bfebb032794933",
+    "url": "/need-for-cash/devassets/loan.png"
+  },
+  {
     "revision": "662654fd89811553cb763cffb7f4f2e8",
     "url": "/need-for-cash/devassets/nextturnbutton.png"
   },
@@ -28,15 +32,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/devassets/profit_folders.png"
   },
   {
-    "revision": "f67ed7565140fe264de4",
-    "url": "/need-for-cash/devgen.main.5307e88e825dae21308d.bundle.js"
+    "revision": "3ef6055b81cad75ceccdf6dfd60f70da",
+    "url": "/need-for-cash/devassets/profit_folders_DNU.png"
+  },
+  {
+    "revision": "a6dbf80903fc078d1a76",
+    "url": "/need-for-cash/devgen.main.0dcb957c37e5c45cabe8.bundle.js"
   },
   {
     "revision": "8857aeb5de5dfb8b65cf",
     "url": "/need-for-cash/devgen.vendors.a830139833da967256f6.bundle.js"
   },
   {
-    "revision": "6298371cae7d29659dcd55f55c18852c",
+    "revision": "74324d46f4327a1b3ecdeb1b593a9b6f",
     "url": "/need-for-cash/devindex.html"
   },
   {
