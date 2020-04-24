@@ -44,15 +44,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/alphaassets/profit_folders_small.png"
   },
   {
-    "revision": "fe7ce107ecb7c4c6fef0",
-    "url": "/need-for-cash/alphagen.main.856bf72b2569c3829f24.bundle.js"
+    "revision": "96ddf115191b98147029",
+    "url": "/need-for-cash/alphagen.main.91af86c5142eec3378d1.bundle.js"
   },
   {
     "revision": "8857aeb5de5dfb8b65cf",
     "url": "/need-for-cash/alphagen.vendors.a830139833da967256f6.bundle.js"
   },
   {
-    "revision": "e0a4915e5b90ac37132bd4a3a86f632f",
+    "revision": "09a10ee24dfd6924562743da6b797e0a",
     "url": "/need-for-cash/alphaindex.html"
   },
   {
