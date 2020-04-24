@@ -1,4 +1,5 @@
 import ExampleObject from '../objects/exampleObject';
+import LoanObject from '../objects/loanObject';
 //import * as UiTools from '../scenes/phaser-ui-tools.js';
 
 export default class Car_Garage_Scene extends Phaser.Scene {
@@ -50,20 +51,32 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     
     
 
-
-
+    
     this.profit_tab.on('pointerdown',()=> {this.enterProfitTab();});
 
     this.store_tab.on('pointerdown',()=> {this.enterStore();});
 
 
-
-  
+    let testbutton= new LoanObject(this,500,500);
+  this.testlist(300,300);
     
   }
 
+  testlist(x:number,y:number){
+    var i =0;
+    while (i<10){
+
+        let testbutton= new LoanObject(this,x,y);
+        y+=100;
+        i++;
+    }
+  }
+
+
+  
 
 
   update() {  
+   // this.testlist(300,300);
   }
 }

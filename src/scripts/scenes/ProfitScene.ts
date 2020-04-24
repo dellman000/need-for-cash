@@ -11,12 +11,6 @@ export default class Profit_Scene extends Phaser.Scene {
    
      this.shop=this.add.image(0,0,'profit');
      this.shop.setOrigin(0,0);
-
-
-
-
-
-
     } 
   
     update() {
