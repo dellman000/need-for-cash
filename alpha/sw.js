@@ -1,4 +1,4 @@
-importScripts("/need-for-cash/alphaprecache-manifest.7873ce93cf4523e537a5ac4e67764ba7.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/need-for-cash/alphaprecache-manifest.91fcfde95aaddd27bb8cd3e272cb21ec.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /**
  * You should only modify this, if you know what you are doing.
