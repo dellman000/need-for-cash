@@ -35,7 +35,8 @@ export default class LoanObject extends Phaser.GameObjects.Sprite {
    
 
    preUpdate(){
-       this.y-=10;
+      // this.y-=1;
+       //sthis.rec.y-=1;
    }
 
 
