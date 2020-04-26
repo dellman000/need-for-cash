@@ -28,6 +28,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/alphaassets/loan.png"
   },
   {
+    "revision": "c3c4989226b39efeb0efc0a8917058a3",
+    "url": "/need-for-cash/alphaassets/money_window.png"
+  },
+  {
     "revision": "662654fd89811553cb763cffb7f4f2e8",
     "url": "/need-for-cash/alphaassets/nextturnbutton.png"
   },
@@ -44,19 +48,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/alphaassets/profit_folders_DNU.png"
   },
   {
-    "revision": "b0a775589b7826ad245226f9a997dc56",
+    "revision": "43a0e4ad746084188f763d9c0738f583",
     "url": "/need-for-cash/alphaassets/profit_folders_small.png"
   },
   {
-    "revision": "9b6cb6507c5242b425a2",
-    "url": "/need-for-cash/alphagen.main.8edbadc227a16816dcab.bundle.js"
+    "revision": "b0a775589b7826ad245226f9a997dc56",
+    "url": "/need-for-cash/alphaassets/profit_folders_small.png~"
+  },
+  {
+    "revision": "82f9d4eebd7b81a5b397",
+    "url": "/need-for-cash/alphagen.main.bc6b984d5341a6bd5711.bundle.js"
   },
   {
     "revision": "8857aeb5de5dfb8b65cf",
     "url": "/need-for-cash/alphagen.vendors.a830139833da967256f6.bundle.js"
   },
   {
-    "revision": "20459ce5f8e100a1aee05aa78d74519c",
+    "revision": "ab0dd8a7c1bef832efdc894cf4181e6b",
     "url": "/need-for-cash/alphaindex.html"
   },
   {
