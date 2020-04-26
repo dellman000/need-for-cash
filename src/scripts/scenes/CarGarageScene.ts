@@ -1,5 +1,6 @@
 import ExampleObject from '../objects/exampleObject';
 import LoanObject from '../objects/loanObject';
+import FinanceObject from '../objects/financeObject';
 //import * as UiTools from '../scenes/phaser-ui-tools.js';
 
 export default class Car_Garage_Scene extends Phaser.Scene {
@@ -14,6 +15,11 @@ export default class Car_Garage_Scene extends Phaser.Scene {
   money:any;
   money_view: Phaser.GameObjects.Text;
   turn_number:number;
+  finance_tab: FinanceObject;
+  expense: number;
+  income: number;
+  credit_score: number;
+  //finance_tab: FinanceObject;
   
 
   
@@ -23,28 +29,22 @@ export default class Car_Garage_Scene extends Phaser.Scene {
   constructor() {
     super({ key: 'Car_Garage' });
   }
-  enterStore(){
-    this.scene.bringToTop('Store');
-  }
-  enterProfitTab(){
-  
-    this.scene.bringToTop('ProfitScene');
-  }
-  enterBack(){
-    this.scene.bringToTop('Car_Garage');
-  }
-
   
   create() {
+    this.income=0;
     this.money=1000;
-    this.registry.set("cash",this.money);
-   
+    this.expense=100;
+    this.credit_score=300;
+//    this.registry.set("cash",this.money);   
     this.garage=this.add.image(0,0,'garage');
     this.garage.setOrigin(0,0);
     this.garage.setInteractive();
 
     this.car=this.add.image(400,50,'car_1');
     this.car.setOrigin(0,0);
+
+
+    
     
     this.money_box=this.add.image(1420,800,'money_bar');
     this.money_box.setOrigin(0,0);
@@ -62,17 +62,19 @@ export default class Car_Garage_Scene extends Phaser.Scene {
 
     
     this.turn_button=this.add.image(700,0,'turn');
+    this.turn_button.setInteractive();
     this.turn_button.setOrigin(0,0);
 
     
+    this.finance_tab= new FinanceObject(this,1860,0,this.income,this.expense,this.credit_score);
 
     this.store_tab=this.add.rectangle(0,100,50,100,0xCFA82F);
     this.store_tab.setInteractive();
 
-    this.profit_tab=this.add.rectangle(1870,500,50,100,0x2BB412);
-    this.profit_tab.setInteractive();
+   /* this.profit_tab=this.add.rectangle(1870,500,50,100 ,0x2BB412);
+    this.profit_tab.setInteractive();*/
     
-    this.scene.launch('ProfitScene');
+    //this.scene.launch('ProfitScene');
     this.scene.launch('Store');
     this.scene.bringToTop('Car_Garage');
 
@@ -80,19 +82,49 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     
 
     
-    this.profit_tab.on('pointerdown',()=> {this.enterProfitTab();});
+   // this.profit_tab.on('pointerdown',()=> {this.enterProfitTab();});
+
+    this.turn_button.on('pointerdown',()=> {this.takemoney();   });
 
     this.store_tab.on('pointerdown',()=> {this.enterStore();   });
 
     this.garage.on('pointerdown',()=> {this.enterBack();   });
 
 
-
+    
   
     
   }
+  enterStore(){
+    this.scene.bringToTop('Store');
+  }
+  enterProfitTab(){
+  
+    this.scene.bringToTop('ProfitScene');
+  }
+  enterBack(){
+   this.finance_tab.tab.setDepth(0);
+    while(this.finance_tab.x<1860){
+      this.finance_tab.tab.incX(5);
+    }
+  }
 
+  takemoney(){
+    this.money-=this.expense;
+    this.money_view.text="CASH\n\n\n"+this.money.toString();
+  }
+  
  
+  /*testlist(x:number,y:number){
+    var i =0;
+    while (i<2){
+
+      let finance_tab= new FinanceObject(this,x,y);
+        y+=100;
+        i++;
+        
+    }
+  }*/
 
 
   

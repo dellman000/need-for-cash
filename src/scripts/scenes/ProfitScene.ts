@@ -16,13 +16,13 @@ export default class Profit_Scene extends Phaser.Scene {
 
  
     create() {
-      this.income_money=this.data.get("cash");
-    console.log("hello");
+     // this.income_money=this.data.get("cash");
+    //console.log(5);
      this.shop=this.add.image(700,0,'profit');
      this.shop.setOrigin(0,0);
      //this.testlist(1100,700);
     // this.registry.events.on('changedata',this.updateData,this);
-     this.money_view=this.add.text(900,800,'this.income_money.toString()',{font:'30px Arial',fill:'black'});
+     //this.money_view=this.add.text(900,800,'this.income_money.toString()',{font:'30px Arial',fill:'black'});
      
     } 
 
@@ -45,8 +45,8 @@ export default class Profit_Scene extends Phaser.Scene {
     
   
     update() {
-      this.money_view.setText('money: '+this.data.get("cash"));
-     
+      //this.money_view.setText('money: '+this.data.get("cash"));
+      this.testlist(300,300);
     }
   }
   
