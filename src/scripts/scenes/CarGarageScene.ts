@@ -21,7 +21,7 @@ export default class Car_Garage_Scene extends Phaser.Scene {
   income: number;
   credit_score: number;
   store_tab: any;
-  //finance_tab: FinanceObject;
+  
   
 
   
@@ -38,7 +38,7 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     this.expense=100;
     this.credit_score=300;
     this.turn_number=1;
-//    this.registry.set("cash",this.money);   
+  
     this.garage=this.add.image(0,0,'garage');
     this.garage.setOrigin(0,0);
     this.garage.setInteractive();
@@ -52,7 +52,7 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     this.money_box=this.add.image(1420,800,'money_bar');
     this.money_box.setOrigin(0,0);
     this.money_view=this.add.text(1550,800,("CASH\n\n\n"+this.money.toString()),{font:'30px Arial',fill:'black'});
-    //this.money_view=this.add.text(1550,800,("CASH\n\n\n"+this.data.get('this_cash').toString()),{font:'30px Arial',fill:'black'});
+   
     this.money_view.setOrigin(0,0);
     
   
@@ -76,34 +76,13 @@ export default class Car_Garage_Scene extends Phaser.Scene {
    /* this.profit_tab=this.add.rectangle(1870,500,50,100 ,0x2BB412);
     this.profit_tab.setInteractive();*/
     
-    //this.scene.launch('ProfitScene');
-    //this.scene.launch('Store');
-    this.scene.bringToTop('Car_Garage');
-
     
-    
-
-    
-   // this.profit_tab.on('pointerdown',()=> {this.enterProfitTab();});
-
+    this.scene.bringToTop('Car_Garage');   
     this.turn_button.on('pointerdown',()=> {this.takemoney();   });
-
-  //  this.store_tab.on('pointerdown',()=> {this.enterStore();   });
-
     this.garage.on('pointerdown',()=> {this.enterBack();});
-
-
-    
-  
-    
   }
-  enterStore(){
-    this.scene.bringToTop('Store');
-  }
-  enterProfitTab(){
-  
-    this.scene.bringToTop('ProfitScene');
-  }
+ 
+ 
   enterBack(){
    this.finance_tab.tab.setDepth(0);
    this.store_tab.table_store.setDepth(0);
