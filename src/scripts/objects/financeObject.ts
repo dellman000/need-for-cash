@@ -8,6 +8,7 @@ export default class FinanceObject extends Phaser.GameObjects.Sprite {
     netIncome: number;
     netIncome_text: Phaser.GameObjects.Text;
     credit_score_text: Phaser.GameObjects.Text;
+    //hi
   
    
 
