@@ -1,6 +1,7 @@
 import ExampleObject from '../objects/exampleObject';
 import LoanObject from '../objects/loanObject';
 import FinanceObject from '../objects/financeObject';
+import StoreObject from '../objects/storeObject';
 //import * as UiTools from '../scenes/phaser-ui-tools.js';
 
 export default class Car_Garage_Scene extends Phaser.Scene {
@@ -8,7 +9,7 @@ export default class Car_Garage_Scene extends Phaser.Scene {
   garage: Phaser.GameObjects.Image;
   pully: Phaser.GameObjects.Image;
   turn_button: any;
-  store_tab: Phaser.GameObjects.Rectangle;
+  //store_tab: Phaser.GameObjects.Rectangle;
   profit_tab: Phaser.GameObjects.Rectangle;
   car: any;
   money_box: Phaser.GameObjects.Image;
@@ -19,6 +20,7 @@ export default class Car_Garage_Scene extends Phaser.Scene {
   expense: number;
   income: number;
   credit_score: number;
+  store_tab: any;
   //finance_tab: FinanceObject;
   
 
@@ -35,6 +37,7 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     this.money=1000;
     this.expense=100;
     this.credit_score=300;
+    this.turn_number=1;
 //    this.registry.set("cash",this.money);   
     this.garage=this.add.image(0,0,'garage');
     this.garage.setOrigin(0,0);
@@ -67,15 +70,14 @@ export default class Car_Garage_Scene extends Phaser.Scene {
 
     
     this.finance_tab= new FinanceObject(this,1860,0,this.income,this.expense,this.credit_score);
+    this.store_tab=new  StoreObject(this,-965,100);
 
-    this.store_tab=this.add.rectangle(0,100,50,100,0xCFA82F);
-    this.store_tab.setInteractive();
-
+    
    /* this.profit_tab=this.add.rectangle(1870,500,50,100 ,0x2BB412);
     this.profit_tab.setInteractive();*/
     
     //this.scene.launch('ProfitScene');
-    this.scene.launch('Store');
+    //this.scene.launch('Store');
     this.scene.bringToTop('Car_Garage');
 
     
@@ -86,9 +88,9 @@ export default class Car_Garage_Scene extends Phaser.Scene {
 
     this.turn_button.on('pointerdown',()=> {this.takemoney();   });
 
-    this.store_tab.on('pointerdown',()=> {this.enterStore();   });
+  //  this.store_tab.on('pointerdown',()=> {this.enterStore();   });
 
-    this.garage.on('pointerdown',()=> {this.enterBack();   });
+    this.garage.on('pointerdown',()=> {this.enterBack();});
 
 
     
@@ -104,13 +106,21 @@ export default class Car_Garage_Scene extends Phaser.Scene {
   }
   enterBack(){
    this.finance_tab.tab.setDepth(0);
+   this.store_tab.table_store.setDepth(0);
     while(this.finance_tab.x<1860){
       this.finance_tab.tab.incX(5);
     }
+    if (this.store_tab.x>-965){
+      this.store_tab.table_store.incX(-1050);
+    }
+
+  
+  
   }
 
   takemoney(){
     this.money-=this.expense;
+    this.turn_number++;
     this.money_view.text="CASH\n\n\n"+this.money.toString();
   }
   

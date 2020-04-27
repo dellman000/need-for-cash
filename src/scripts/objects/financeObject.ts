@@ -53,10 +53,11 @@ export default class FinanceObject extends Phaser.GameObjects.Sprite {
 
    move(){
      
-       while(this.x>700){
+       while(this.x>1000){
         this.tab.incX(-1);
        }
        this.tab.setDepth(1);
+      
     
    }
    
