@@ -4,6 +4,7 @@ import PreloadScene from './scenes/preloadScene';
 import GameConfig = Phaser.Types.Core.GameConfig;
 import Car_Garage_Scene from './scenes/CarGarageScene';
 import Race_Track_Scene from './scenes/RaceTrackScene';
+import LoanScene from './scenes/LoanScene';
 
 
 
@@ -20,7 +21,7 @@ const config: GameConfig = {
         width: DEFAULT_WIDTH,
         height: DEFAULT_HEIGHT
     },
-    scene: [PreloadScene, Car_Garage_Scene,Race_Track_Scene],
+    scene: [PreloadScene, Car_Garage_Scene,Race_Track_Scene,LoanScene],
     physics: {
         default: 'arcade',
         arcade: {

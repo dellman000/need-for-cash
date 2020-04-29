@@ -21,6 +21,7 @@ export default class Car_Garage_Scene extends Phaser.Scene {
   income: number;
   credit_score: number;
   store_tab: any;
+  income_send: any;
   
   
 
@@ -32,12 +33,21 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     super({ key: 'Car_Garage' });
   }
   
+
+init(data){
+this.income_send=this.income;
+}
+
+
   create() {
     this.income=0;
     this.money=1000;
     this.expense=100;
     this.credit_score=300;
     this.turn_number=1;
+
+
+    this.registry.set('money',this.income);
   
     this.garage=this.add.image(0,0,'garage');
     this.garage.setOrigin(0,0);
@@ -79,9 +89,15 @@ export default class Car_Garage_Scene extends Phaser.Scene {
     
     this.scene.bringToTop('Car_Garage');   
     this.turn_button.on('pointerdown',()=> {this.takemoney();   });
-    this.garage.on('pointerdown',()=> {this.enterBack();});
+   // this.garage.on('pointerdown',()=> {this.enterBack();});
+
+   this.garage.on('pointerdown',()=> {this.tempLaunch()});
   }
  
+  tempLaunch(){
+    this.scene.launch('loans_test',{income_send:this.income_send});
+    this.scene.bringToTop('loans_test');
+  }
  
   enterBack(){
    this.finance_tab.tab.setDepth(0);
