@@ -24,6 +24,6 @@ export default class PreloadScene extends Phaser.Scene {
 
   create() {
     //this.loading=this.add.text(50,100,"this is loading...",{font:'22px Arial',fill:'black'});
-    this.scene.start('Car_Garage');
+    this.scene.start('Car_Garage',{income_start:1000 ,sendLoan:0});
   }
 }
