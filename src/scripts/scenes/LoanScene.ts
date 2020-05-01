@@ -15,6 +15,7 @@ loanMoney:number;
 
 init(data){
 this.income_sent=data.income_send;
+
 }
 
 
@@ -43,7 +44,7 @@ addloan(){
   
   
   this.scene.pause('Car_Garage');
-    this.scene.resume('Car_Garage',{sendL:this.addloanmoney});
+    this.scene.resume('Car_Garage',{sendLoan:this.addloanmoney});
     this.scene.bringToTop('Car_Garage');
     
 }

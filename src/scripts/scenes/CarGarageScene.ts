@@ -41,6 +41,7 @@ loanmoney:number;
 init(data){
 this.loanmoney=data.sendLoan;
 this.money=data.income_start+this.loanmoney;
+this.data=data;
 }
 
 
@@ -48,7 +49,7 @@ this.money=data.income_start+this.loanmoney;
   create() {
 
 
-    console.log(this.loanmoney);
+  //  console.log(this.loanmoney);
 
     this.income=1111;
    // this.money=1001;//this.loanmoney;
@@ -116,8 +117,8 @@ this.money=data.income_start+this.loanmoney;
   }
   resume(data){
     console.log(555);
-    this.loanmoney=data.sendLoan;
-    console.log(data.sendL);
+    this.loanmoney=+data.sendLoan;
+    console.log(data.sendLoan);
     this.money=data.income_start+this.loanmoney;
   }
  
