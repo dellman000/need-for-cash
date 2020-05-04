@@ -113,13 +113,19 @@ this.data=data;
    this.garage.on('pointerdown',()=> {this.tempLaunch()});
 
    //this.garage.on('resume',()=>{this.resume(this.data)})
-   this.events.on('resume',()=>{this.resume(this.data)});
+   this.events.on('resume',(sys,data)=>{this.resume(data)});
   }
   resume(data){
     console.log(555);
-    this.loanmoney=+data.sendLoan;
-    console.log(data.sendLoan);
-    this.money=data.income_start+this.loanmoney;
+    this.loanmoney+=data.sendLoan;
+   // console.log(data.sendLoan);
+   // console.log(this.loanmoney);
+    this.money+=data.sendLoan;
+
+    this.money_loan.text=this.loanmoney.toString();
+    this.money_view.text=this.money.toString();
+   // this.money=data.income_start+this.loanmoney;
+    
   }
  
   tempLaunch(){
