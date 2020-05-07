@@ -27,6 +27,10 @@ export default class Car_Garage_Scene extends Phaser.Scene {
 loanmoney:number;
   loan_view: Phaser.GameObjects.Text;
   money_loan: Phaser.GameObjects.Text;
+  garage_button: Phaser.GameObjects.Image;
+  race_button: Phaser.GameObjects.Image;
+  race_track_button: any;
+  count: any;
 
   
   
@@ -42,6 +46,7 @@ init(data){
 this.loanmoney=data.sendLoan;
 this.money=data.income_start+this.loanmoney;
 this.data=data;
+this.count = data.turn;
 }
 
 
@@ -56,6 +61,7 @@ this.data=data;
     this.expense=100;
     this.credit_score=300;
     this.turn_number=1;
+    this.count = 0;
 
 
   //  this.registry.set('money',this.income);
@@ -91,6 +97,12 @@ this.data=data;
     this.turn_button.setInteractive();
     this.turn_button.setOrigin(0,0);
 
+    this.race_track_button=this.add.image(1590,0,'race_track_button');
+    this.race_track_button.setOrigin(0,0);
+    this.race_track_button.setInteractive();
+    this.race_track_button.on('pointerdown', () => {this.count ++;
+    this.scene.start('RaceTrack', {speed:this.store_tab.car_speed, turn:this.count})});
+
     
     this.finance_tab= new FinanceObject(this,1860,0,this.income,this.expense,this.credit_score);
     this.store_tab=new  StoreObject(this,-965,100);
@@ -102,12 +114,12 @@ this.data=data;
     
      
 
-    this.scene.launch('loans_test',{income_send:this.income});
+    //this.scene.launch('loans_test',{income_send:this.income});
     
     this.scene.bringToTop('Car_Garage'); 
 
 
-    this.turn_button.on('pointerdown',()=> {this.takemoney();   });
+    this.turn_button.on('pointerdown',()=> {this.takemoney(); this.count ++ });
    // this.garage.on('pointerdown',()=> {this.enterBack();});
 
    this.garage.on('pointerdown',()=> {this.tempLaunch()});
