@@ -76,15 +76,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/betaassets/profit_folders_small.png~"
   },
   {
-    "revision": "aaa355556cd6ce52aeb9",
-    "url": "/need-for-cash/betagen.main.8081cddde88669df66ad.bundle.js"
+    "revision": "1f02c38f7818deaf59ec",
+    "url": "/need-for-cash/betagen.main.461faff372987ba0fc9d.bundle.js"
   },
   {
     "revision": "8857aeb5de5dfb8b65cf",
     "url": "/need-for-cash/betagen.vendors.a830139833da967256f6.bundle.js"
   },
   {
-    "revision": "638e3fcc6d0d050d35d014672d538935",
+    "revision": "5b50cecbf4a2746560f82173e0f76c9b",
     "url": "/need-for-cash/betaindex.html"
   },
   {
