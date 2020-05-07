@@ -137,7 +137,7 @@ this.data=data;
 
   resume(data){
     
-    console.log(data.calculate);
+   // console.log(data.calculate);
     if(data.calculate==true){
       console.log(555);
       this.loanmoney+=data.sendLoan;
@@ -208,17 +208,7 @@ this.data=data;
 
 
   update() {  
-
-
-  
-
-
-
    // this.testlist(300,300);
-   
-
-
-
 
 
   }

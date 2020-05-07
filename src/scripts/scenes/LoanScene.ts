@@ -142,6 +142,14 @@ addloan(){
         this.tex.setText('money '+ data);
     }
   }*/
+taken(Array_list:LoanObject[]){
+for(var i=1;i<Array_list.length;i++){
+  let x = String( Array_list[i].taken)+" for loan "+Array_list[i].worth;
+  console.log(x);
+}
+console.log("**********");
+}
+
  confirmLoanTake(Array_list:LoanObject[]){
 
 if(this.lastUIindex != (-1)){
@@ -152,22 +160,50 @@ if(this.lastUIindex != (-1)){
     this.cancel_deal.setInteractive();
 
     let x= this.loanArray[this.lastUIindex] as LoanObject;
+    if(x.taken==false){
+
+      this.comfirm_deal_text.text="This loan is worth $"+x.worth +" with a " +
+      x.interest +"% interest.\n Are you sure you want to take this loan?";
+      this.comfirm_deal_text.setVisible(true);
+      this.getloan=x.worth;
+    }
+    else{
+      this.comfirm_deal_text.text="This loan is worth $"+x.worth +" with a " +
+      x.interest +"% interest.\n Are you sure you want to Pay this loan?";
+      this.comfirm_deal_text.setVisible(true);
+      this.getloan=x.worth;
+    }
     console.log(x.worth);
 
-    this.comfirm_deal_text.text="This loan is worth $"+x.worth +" with a " +
-    x.interest +"% interest.\n Are you sure you want to take this loan?";
-    this.comfirm_deal_text.setVisible(true);
-    this.getloan=x.worth;
 }
   this.comfirm_deal.on('pointerdown',()=>{
-  console.log('comfirm'); 
-  this.ComformationBoxLeave();
-  this.addloanmoney=this.getloan;
-  this.addloan();
-  this.getloan=0;
-  this.addloanmoney=0;
-  Array_list[this.lastUIindex].taken=true;
-  this.take_loan_box_text.text="Pay Loan";
+      //console.log('comfirm'); 
+      this.ComformationBoxLeave();
+      if (Array_list[this.lastUIindex].taken==false){
+        this.addloanmoney=this.getloan;
+        this.addloan();
+        this.getloan=0;
+        this.addloanmoney=0;
+        Array_list[this.lastUIindex].taken=true;
+        this.take_loan_box_text.text="get Loan";
+        
+        console.log("when taken == false");
+        this.taken(this.loanArray);
+      }
+      else if(Array_list[this.lastUIindex].taken==true){
+        console.log("when taken == true");
+        this.addloanmoney=this.getloan-(this.getloan*2);
+        this.take_loan_box_text.text="Pay Loan";
+        this.take_loan_box_text.updateText();
+        this.addloan();
+        this.getloan=0;
+        this.addloanmoney=0;
+        Array_list[this.lastUIindex].taken=false;
+      //  console.log(Array_list[this.lastUIindex].worth)
+        //this.taken(this.loanArray);
+    
+  }
+  
 
 });
 this.cancel_deal.on('pointerdown',()=>{
@@ -190,6 +226,7 @@ this.ComformationBoxLeave();
 
     // console.log("running interest");
     for(var i=1;i<Array_list.length;i++){
+      
      // console.log("running interest");
      
      // console.log(Array_list[i].worth);
