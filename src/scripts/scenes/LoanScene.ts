@@ -21,6 +21,8 @@ loanMoney:number;
   comfirm_deal: Phaser.GameObjects.Rectangle;
   cancel_deal: Phaser.GameObjects.Rectangle;
   comfirm_deal_text: Phaser.GameObjects.Text;
+  getloan: number;
+  take_loan_box_text: Phaser.GameObjects.Text;
  
   //loanArray: any;
 
@@ -52,16 +54,17 @@ this.run_interest=data.calculate;
   this.PrintArray(this.loanArray);
   this.CreateUILoanList(this.loanArray);
 
- this.take_loan_box=this.add.rectangle(300,900,100,100,0x00ffff);
+ this.take_loan_box=this.add.rectangle(300,900,200,100,0x00ffff);
  this.take_loan_box.setInteractive();
- this.take_loan_box.on('pointerdown',()=>{this.confirmLoanTake()});
+ this.take_loan_box.on('pointerdown',()=>{this.confirmLoanTake(this.loanArray)});
+ this.take_loan_box_text=this.add.text(this.take_loan_box.x-100,this.take_loan_box.y,'',{font:'30px Arial',fill:'black'});
 
 
- this.comfirm=this.add.rectangle(1000,500,500,500,0xf0f0f0);
+ this.comfirm=this.add.rectangle(800,500,1200,500,0xf0f0f0);
  this.comfirm.setVisible(false);
- this.comfirm_deal_text=this.add.text(this.comfirm.x-100,this.comfirm.y-130,'',{font:'60px Arial',fill:'black'}).setVisible(false);
- this.comfirm_deal=this.add.rectangle(this.comfirm.x-20,this.comfirm.y,30,30,0x00ff00).setVisible(false);
- this.cancel_deal=this.add.rectangle(this.comfirm.x+20,this.comfirm.y,30,30,0xff0000).setVisible(false);
+ this.comfirm_deal_text=this.add.text(this.comfirm.x-600,this.comfirm.y-130,'',{font:'60px Arial',fill:'black'}).setVisible(false);
+ this.comfirm_deal=this.add.rectangle(this.comfirm.x-300,this.comfirm.y+150,100,100,0x00ff00).setVisible(false);
+ this.cancel_deal=this.add.rectangle(this.comfirm.x+300,this.comfirm.y+150,100,100,0xff0000).setVisible(false);
 
 
 
@@ -81,7 +84,7 @@ Add_Loans_To_Array(Array_list:LoanObject[]){
 
   for(var i=1;i<9;i++){
       Array_list[i]=new LoanObject(1000+i,2,10,30);
-      Array_list[i].taken=true;
+      Array_list[i].taken=false;
   }
 }
 
@@ -98,6 +101,13 @@ CreateUILoanList(arr:LoanObject[]){
 }
 showtext(x:LoanObjectUI){
 this.lastUIindex=x.index;
+let t=this.loanArray[x.index] as LoanObject;
+if(t.taken==true){
+  this.take_loan_box_text.text="Pay Loan";
+}
+else{
+  this.take_loan_box_text.text="Get Loan";
+}
 console.log("hi");
 console.log(x.index);
 let y =this.UIgroup.getChildren()as LoanObjectUI[];
@@ -131,26 +141,34 @@ addloan(){
     if(key=='money'){
         this.tex.setText('money '+ data);
     }
-
-
   }*/
- confirmLoanTake(){
-this.comfirm.setVisible(true);
-this.comfirm_deal.setVisible(true);
-this.cancel_deal.setVisible(true);
-this.comfirm_deal.setInteractive();
-this.cancel_deal.setInteractive();
-if(this.lastUIindex != (-1)){
-let x= this.loanArray[this.lastUIindex] as LoanObject;
-console.log(x.worth);
+ confirmLoanTake(Array_list:LoanObject[]){
 
-this.comfirm_deal_text.text="this loan is worth $"+x.worth +"with a " +
-x.interest +"% interest.\n Are you sure you want to take this loan?";
-this.comfirm_deal_text.setVisible(true);
+if(this.lastUIindex != (-1)){
+    this.comfirm.setVisible(true);
+    this.comfirm_deal.setVisible(true);
+    this.cancel_deal.setVisible(true);
+    this.comfirm_deal.setInteractive();
+    this.cancel_deal.setInteractive();
+
+    let x= this.loanArray[this.lastUIindex] as LoanObject;
+    console.log(x.worth);
+
+    this.comfirm_deal_text.text="This loan is worth $"+x.worth +" with a " +
+    x.interest +"% interest.\n Are you sure you want to take this loan?";
+    this.comfirm_deal_text.setVisible(true);
+    this.getloan=x.worth;
 }
-this.comfirm_deal.on('pointerdown',()=>{
+  this.comfirm_deal.on('pointerdown',()=>{
   console.log('comfirm'); 
   this.ComformationBoxLeave();
+  this.addloanmoney=this.getloan;
+  this.addloan();
+  this.getloan=0;
+  this.addloanmoney=0;
+  Array_list[this.lastUIindex].taken=true;
+  this.take_loan_box_text.text="Pay Loan";
+
 });
 this.cancel_deal.on('pointerdown',()=>{
 console.log('cancel');
