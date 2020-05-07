@@ -46,8 +46,8 @@ loanmoney:number;
 init(data){
 this.loanmoney=data.sendLoan;
 this.money=data.income_start+this.loanmoney;
-this.data=data;
-this.count = data.turn;
+//this.data=data;
+//this.count = data.turn;
 }
 
 

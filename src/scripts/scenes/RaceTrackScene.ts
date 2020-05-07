@@ -26,8 +26,8 @@ export default class Race_Track_Scene extends Phaser.Scene {
       this.garage_button.setOrigin(0,0);
       this.garage_button.setScrollFactor(0);
       this.garage_button.setInteractive();
-      this.garage_button.on('pointerdown', () => {this.scene.start('Car_Garage',
-      {turn:this.count, speed:this.car_speed})});
+      this.garage_button.on('pointerdown', () => {this.scene.start('Car_Garage'/*,
+      {turn:this.count, speed:this.car_speed}*/)});
 
       this.movebutton = false;
       this.race_button=this.add.image(700,0,'race_button');
@@ -44,20 +44,20 @@ export default class Race_Track_Scene extends Phaser.Scene {
       
     }
 
-    init(data){
-      this.car_speed=data.speed;
-      this.count = data.turn;
-      }
+    //init(data){
+      //this.car_speed=data.speed;
+      //this.count = data.turn;
+      //}
     move(){
       if (this.movebutton == true){
-        //if (this.car.x<1250) {
+        if (this.car.x<1250) {
           //this.car.x+=this.car_speed;
-          //this.car.x+=10
-          //this.race_track.tilePositionX += this.car_speed;
-        //}
+          this.car.x+=10
+          this.race_track.tilePositionX += 10;
+        }
         if (this.pc_car.x<1251) {
-          //this.pc_car.x+=8;
-          if (this.count == 1) {
+          this.pc_car.x+=8;
+          /*if (this.count == 1) {
             this.pc_car.x+= 20;
           }
           if (this.count == 2) {
@@ -68,12 +68,12 @@ export default class Race_Track_Scene extends Phaser.Scene {
           }
           else {
             this.pc_car.x+=8;
-          }
+          }*/
         }
       }
     }
     update() {
       this.move();
     }
-  }
+}
   
