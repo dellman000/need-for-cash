@@ -8,6 +8,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/betaassets/Terms_Conditions_tab.png"
   },
   {
+    "revision": "59ded95593d177c598b11cfbcc397558",
+    "url": "/need-for-cash/betaassets/Terms_Conditions_tab_button.png"
+  },
+  {
+    "revision": "d57250d81d40d53ce732555e7b91cc1f",
+    "url": "/need-for-cash/betaassets/Terms_Conditions_tab_button.png~"
+  },
+  {
     "revision": "a13f661c813cc6e6446b203e9f2652bf",
     "url": "/need-for-cash/betaassets/car_1_small.png"
   },
@@ -48,6 +56,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/betaassets/nextturnbutton.png~"
   },
   {
+    "revision": "309c8240e3f3a5e354a88e693908d514",
+    "url": "/need-for-cash/betaassets/profit_folderbutton.png"
+  },
+  {
     "revision": "a443e48d6a1b561244e38fe6a4a3a447",
     "url": "/need-for-cash/betaassets/profit_folders.png"
   },
@@ -64,15 +76,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/betaassets/profit_folders_small.png~"
   },
   {
-    "revision": "f7e9d14fcdcbb7d3051c",
-    "url": "/need-for-cash/betagen.main.ecba77d030c113126898.bundle.js"
+    "revision": "aaa355556cd6ce52aeb9",
+    "url": "/need-for-cash/betagen.main.8081cddde88669df66ad.bundle.js"
   },
   {
     "revision": "8857aeb5de5dfb8b65cf",
     "url": "/need-for-cash/betagen.vendors.a830139833da967256f6.bundle.js"
   },
   {
-    "revision": "bce6389ea2e6dacf12f3a2f209ab6885",
+    "revision": "638e3fcc6d0d050d35d014672d538935",
     "url": "/need-for-cash/betaindex.html"
   },
   {
