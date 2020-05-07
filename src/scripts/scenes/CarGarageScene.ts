@@ -31,6 +31,7 @@ loanmoney:number;
   race_button: Phaser.GameObjects.Image;
   race_track_button: any;
   count: any;
+  Loan_Sponsorbutton: Phaser.GameObjects.Image;
 
   
   
@@ -104,7 +105,10 @@ this.count = data.turn;
     this.scene.start('RaceTrack', {speed:this.store_tab.car_speed, turn:this.count})});
 
     
-    this.finance_tab= new FinanceObject(this,1860,0,this.income,this.expense,this.credit_score);
+    this.finance_tab= new FinanceObject(this,1960,0,this.income,this.expense,this.credit_score);
+    
+
+
     this.store_tab=new  StoreObject(this,-965,100);
 
     
@@ -113,6 +117,9 @@ this.count = data.turn;
    // this.scene.launch('loans_test');
     
      
+    this.Loan_Sponsorbutton=this.add.image(1850,50,'loan_Sponsor_button').setDepth(2);
+    this.Loan_Sponsorbutton.setOrigin(0,0);
+    this.Loan_Sponsorbutton.setInteractive();
 
     //this.scene.launch('loans_test',{income_send:this.income});
     
@@ -122,33 +129,51 @@ this.count = data.turn;
     this.turn_button.on('pointerdown',()=> {this.takemoney(); this.count ++ });
    // this.garage.on('pointerdown',()=> {this.enterBack();});
 
-   this.garage.on('pointerdown',()=> {this.tempLaunch()});
+   this.Loan_Sponsorbutton.on('pointerdown',()=> {this.tempLaunch()});
 
    //this.garage.on('resume',()=>{this.resume(this.data)})
    this.events.on('resume',(sys,data)=>{this.resume(data)});
-  }
-  resume(data){
-    console.log(555);
-    this.loanmoney+=data.sendLoan;
-   // console.log(data.sendLoan);
-   // console.log(this.loanmoney);
-    this.money+=data.sendLoan;
 
-    this.money_loan.text=this.loanmoney.toString();
-    this.money_view.text=this.money.toString();
-   // this.money=data.income_start+this.loanmoney;
+
+
+  }
+ 
+
+
+
+  resume(data){
+    
+    console.log(data.calculate);
+    if(data.calculate==true){
+      console.log(555);
+      this.loanmoney+=data.sendLoan;
+      this.money_loan.text="LOAN\n\n\n"+this.loanmoney.toString();
+    }
+    else{
+      this.loanmoney+=data.sendLoan;
+      // console.log(data.sendLoan);
+      // console.log(this.loanmoney);
+       this.money+=data.sendLoan;
+   
+       this.money_loan.text="LOAN\n\n\n"+this.loanmoney.toString();
+       this.money_view.text="CASH\n\n\n"+this.money.toString();
+      // this.money=data.income_start+this.loanmoney;
+  }
+   
     
   }
  
   tempLaunch(){
-    this.scene.pause('loans_test',{income_send:this.income});
-    this.scene.resume('loans_test');
+    this.scene.bringToTop('loans_test');
+    this.scene.pause('loans_test',{income_send:this.income,calculate:false});
+    this.scene.resume('loans_test',{income_send:this.income,calculate:false});
     //this.scene.launch('loans_test',{income_send:this.income});
 
-    this.scene.bringToTop('loans_test');
+    
   }
  
   enterBack(){
+  
    this.finance_tab.tab.setDepth(0);
    this.store_tab.table_store.setDepth(0);
     while(this.finance_tab.x<1860){
@@ -157,6 +182,7 @@ this.count = data.turn;
     if (this.store_tab.x>-965){
       this.store_tab.table_store.incX(-1050);
     }
+    this.scene.bringToTop('Car_Garage');
 
   
   
@@ -166,6 +192,9 @@ this.count = data.turn;
     this.money+=this.income-this.expense;
     this.turn_number++;
     this.money_view.text="CASH\n\n\n"+this.money.toString();
+
+    this.scene.pause('loans_test');
+    this.scene.resume('loans_test',{calculate:true});
   }
   
  
@@ -180,12 +209,23 @@ this.count = data.turn;
     }
   }*/
 
-
+  
   
 
 
   update() {  
+
+
+  
+
+
+
    // this.testlist(300,300);
    
+
+
+
+
+
   }
 }

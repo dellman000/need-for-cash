@@ -16,6 +16,7 @@ export default class PreloadScene extends Phaser.Scene {
     this.load.image("turn","assets/nextturnbutton.png");
     //this.loading.text="loading 75%";
     this.load.image("profit","assets/profit_folders_small.png");
+    this.load.image('profit_button',"assets/profit_folderbutton.png");
     this.load.image("loan","assets/loan_button.png");
     //this.loading.text="DING!!!";
     this.load.image('car_1',"assets/car_1_small.png");
