@@ -6,6 +6,7 @@ export default class StoreObject extends Phaser.GameObjects.Sprite {
     Body_coll: Phaser.GameObjects.Text;
     Turbo_coll: Phaser.GameObjects.Text;
     
+    
 
 
 
@@ -22,7 +23,7 @@ export default class StoreObject extends Phaser.GameObjects.Sprite {
 
        this.engine_coll=this.scene.add.text(-900,200,'Engines ',{font:'50px Arial',fill:'white'});
        this.engine_coll.setOrigin(0,0);
-
+        
        this.Tires_coll=this.scene.add.text(-900,400,'Tires ',{font:'50px Arial',fill:'white'});
        this.Tires_coll.setOrigin(0,0);
 

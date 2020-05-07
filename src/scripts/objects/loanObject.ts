@@ -1,4 +1,4 @@
-export default class LoanObject extends Phaser.GameObjects.Sprite {
+export default class LoanObject  {
     rec: Phaser.GameObjects.Rectangle;
     worth: number;
     interest: number;
@@ -11,12 +11,9 @@ export default class LoanObject extends Phaser.GameObjects.Sprite {
 
 
 
-    constructor(scene: Phaser.Scene, x: number, y: number,worth:number,interest:number,interest_time:number,due:number) {
-        super(scene, x, y, 'loan');
-        scene.sys.updateList.add(this);
-        scene.sys.displayList.add(this);
-        //this.setVisible(true);
-        this.setInteractive();
+    constructor(worth:number,interest:number,interest_time:number,due:number) {
+       //this.setVisible(true);
+        
         this.taken=false;
         this.worth=worth;
         this.interest=interest;
@@ -25,7 +22,7 @@ export default class LoanObject extends Phaser.GameObjects.Sprite {
 
 
         this.terms="This loan is worth "+ this.worth+" with a " +this.interest+"% interest for every "+this.interest_time+" turns.";
-        this.setInteractive();
+       
 
         /*
         this.rec=scene.add.rectangle(x+345,y+60,200,75,0x2BB412);
@@ -37,15 +34,7 @@ export default class LoanObject extends Phaser.GameObjects.Sprite {
         
     }
 
-    movedown(){
-        this.y+=100;
-        this.rec.y+=100;
-    }
-
-    move(){
-        this.x+=100;
-        this.rec.x+=100;
-    }
+  
 
    
 

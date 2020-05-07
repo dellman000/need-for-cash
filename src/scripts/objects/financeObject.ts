@@ -8,6 +8,7 @@ export default class FinanceObject extends Phaser.GameObjects.Sprite {
     netIncome: number;
     netIncome_text: Phaser.GameObjects.Text;
     credit_score_text: Phaser.GameObjects.Text;
+    finance_tab_button: any;
     //hi
   
    
@@ -28,19 +29,20 @@ export default class FinanceObject extends Phaser.GameObjects.Sprite {
         this.credit_score=credit_score;
         this.netIncome=income-expenses;
 
-        this.income_text=this.scene.add.text(1960,100,'Income : '+ this.income,{font:'50px Arial',fill:'white'});
+        this.income_text=this.scene.add.text(2060,100,'Income : '+ this.income,{font:'50px Arial',fill:'white'});
         this.income_text.setOrigin(0,0);
 
-        this.expenses_text=this.scene.add.text(1960,200,'Expense : '+ this.expenses,{font:'50px Arial',fill:'white'});
+        this.expenses_text=this.scene.add.text(2060,200,'Expense : '+ this.expenses,{font:'50px Arial',fill:'white'});
         this.income_text.setOrigin(0,0);
 
-        this.netIncome_text=this.scene.add.text(1960,300,'Net Income : '+ this.netIncome,{font:'50px Arial',fill:'white'});
+        this.netIncome_text=this.scene.add.text(2060,300,'Net Income : '+ this.netIncome,{font:'50px Arial',fill:'white'});
         this.netIncome_text.setOrigin(0,0);
 
-        this.credit_score_text=this.scene.add.text(1960,400,'Credit Score : '+ this.credit_score,{font:'50px Arial',fill:'white'});
+        this.credit_score_text=this.scene.add.text(2060,400,'Credit Score : '+ this.credit_score,{font:'50px Arial',fill:'white'});
         this.credit_score_text.setOrigin(0,0);
         
 
+      
       
       
         this.tab=this.scene.add.group();
@@ -49,6 +51,8 @@ export default class FinanceObject extends Phaser.GameObjects.Sprite {
         this.tab.add(this.netIncome_text);
         this.tab.add(this.credit_score_text);
         this.tab.add(this);
+        this.finance_tab_button=this.scene.add.image(1865,305,'profit_button').setOrigin(0,0).setInteractive();
+        this.finance_tab_button.on('pointerdown',()=>{this.move()})
 
     }
 
@@ -56,8 +60,9 @@ export default class FinanceObject extends Phaser.GameObjects.Sprite {
      
        while(this.x>1000){
         this.tab.incX(-1);
+        //this.credit_score_text.x-=1;
        }
-       this.tab.setDepth(1);
+      // this.tab.setDepth(1);
       
     
    }
