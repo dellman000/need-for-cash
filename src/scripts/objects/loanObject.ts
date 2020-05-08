@@ -6,7 +6,7 @@ export default class LoanObject  {
     taken: boolean;
     terms: string;
     interest_time: number;
-   
+   logo_number:number;
 
 
 
@@ -19,7 +19,8 @@ export default class LoanObject  {
         this.interest=interest;
         this.interest_time=interest_time;
         this.turns_due=due;
-
+        
+        this.logo_number=Phaser.Math.Between(1,4);
 
         this.terms="This loan is worth "+ this.worth+" with a " +this.interest+"% interest for every "+this.interest_time+" turns.";
        

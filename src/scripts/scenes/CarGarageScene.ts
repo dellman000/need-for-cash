@@ -101,14 +101,11 @@ this.money=data.income_start+this.loanmoney;
     this.race_track_button=this.add.image(1590,0,'race_track_button');
     this.race_track_button.setOrigin(0,0);
     this.race_track_button.setInteractive();
-    this.race_track_button.on('pointerdown', () => {this.count ++;
-    this.scene.start('RaceTrack', {speed:this.store_tab.car_speed, turn:this.count})});
+    this.race_track_button.on('pointerdown', () => {this.count ++; this.scene.launch('RaceTrack', {speed:this.store_tab.car_speed, turn:this.count})
+    this.scene.bringToTop('RaceTrack')});
 
     
     this.finance_tab= new FinanceObject(this,1960,0,this.income,this.expense,this.credit_score);
-    
-
-
     this.store_tab=new  StoreObject(this,-965,100);
 
     
@@ -121,13 +118,13 @@ this.money=data.income_start+this.loanmoney;
     this.Loan_Sponsorbutton.setOrigin(0,0);
     this.Loan_Sponsorbutton.setInteractive();
 
-    //this.scene.launch('loans_test',{income_send:this.income});
+    this.scene.launch('loans_test',{income_send:this.income});
     
     this.scene.bringToTop('Car_Garage'); 
 
 
     this.turn_button.on('pointerdown',()=> {this.takemoney(); this.count ++ });
-   // this.garage.on('pointerdown',()=> {this.enterBack();});
+    this.garage.on('pointerdown',()=> {this.enterBack();});
 
    this.Loan_Sponsorbutton.on('pointerdown',()=> {this.tempLaunch()});
 

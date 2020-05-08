@@ -85,6 +85,7 @@ Add_Loans_To_Array(Array_list:LoanObject[]){
   for(var i=1;i<9;i++){
       Array_list[i]=new LoanObject(1000+i,2,10,30);
       Array_list[i].taken=false;
+     // console.log(Array_list[i].logo_number);
   }
 }
 
@@ -92,6 +93,7 @@ CreateUILoanList(arr:LoanObject[]){
   for(var i=1;i<5;i++){
     let x=new LoanObjectUI(this,1408,130+(i*175),arr[i],i);
     x.on('pointerdown',()=>{this.showtext(x)});
+    
     this.UIgroup.add(x);
     x.tex.setVisible(false);
 
@@ -101,15 +103,17 @@ CreateUILoanList(arr:LoanObject[]){
 }
 showtext(x:LoanObjectUI){
 this.lastUIindex=x.index;
+
 let t=this.loanArray[x.index] as LoanObject;
+console.log(t.logo_number);
 if(t.taken==true){
   this.take_loan_box_text.text="Pay Loan";
 }
 else{
   this.take_loan_box_text.text="Get Loan";
 }
-console.log("hi");
-console.log(x.index);
+//console.log("hi");
+//console.log(x.index);
 let y =this.UIgroup.getChildren()as LoanObjectUI[];
 
 for(var i=0;i<y.length;i++){
@@ -124,8 +128,10 @@ x.tex.setVisible(true);
 
 
 PrintArray(Array_list:LoanObject[]){
-  for(var i=0;i<4;i++){
+  for(var i=1;i<4;i++){
     console.log(Array_list[i]);
+    console.log(Array_list[i].logo_number);
+
   }
 }
 
@@ -145,9 +151,9 @@ addloan(){
 taken(Array_list:LoanObject[]){
 for(var i=1;i<Array_list.length;i++){
   let x = String( Array_list[i].taken)+" for loan "+Array_list[i].worth;
-  console.log(x);
+  //console.log(x);
 }
-console.log("**********");
+//console.log("**********");
 }
 
  confirmLoanTake(Array_list:LoanObject[]){
@@ -173,7 +179,7 @@ if(this.lastUIindex != (-1)){
       this.comfirm_deal_text.setVisible(true);
       this.getloan=x.worth;
     }
-    console.log(x.worth);
+    //console.log(x.worth);
 
 }
   this.comfirm_deal.on('pointerdown',()=>{
@@ -187,11 +193,11 @@ if(this.lastUIindex != (-1)){
         Array_list[this.lastUIindex].taken=true;
         this.take_loan_box_text.text="get Loan";
         
-        console.log("when taken == false");
+        //console.log("when taken == false");
         this.taken(this.loanArray);
       }
       else if(Array_list[this.lastUIindex].taken==true){
-        console.log("when taken == true");
+       // console.log("when taken == true");
         this.addloanmoney=this.getloan-(this.getloan*2);
         this.take_loan_box_text.text="Pay Loan";
         this.take_loan_box_text.updateText();
@@ -207,7 +213,7 @@ if(this.lastUIindex != (-1)){
 
 });
 this.cancel_deal.on('pointerdown',()=>{
-console.log('cancel');
+//console.log('cancel');
 this.ComformationBoxLeave();
 });
  }
@@ -233,11 +239,11 @@ this.ComformationBoxLeave();
       if(Array_list[i].taken==true){
         Array_list[i].worth+=((Array_list[i].interest*.01)*Array_list[i].worth);
         this.addloanmoney+=((Array_list[i].interest*.01)*Array_list[i].worth) ;
-        console.log(Array_list[i].worth);
+       // console.log(Array_list[i].worth);
       }
     }
    }
-   console.log(this.addloanmoney)
+  // console.log(this.addloanmoney)
    this.scene.pause('Car_Garage');
    this.scene.resume('Car_Garage',{sendLoan:this.addloanmoney,calculate:true});
    data.calculate=false;

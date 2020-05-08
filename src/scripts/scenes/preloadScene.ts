@@ -22,6 +22,14 @@ export default class PreloadScene extends Phaser.Scene {
     this.load.image('car_1',"assets/car_1_small.png");
     this.load.image('money_bar','assets/money_window.png');
     this.load.image('Loan_Sponsor',"assets/Terms_Conditions_tab.png");
+    this.load.image('loan_Sponsor_button',"assets/Terms_Conditions_tab_button.png");
+
+    this.load.image('Cap1_logo',"/assets/Logos/Capital_One_final.png");
+    this.load.image('Chase_logo',"/assets/Logos/chase-logo_final.png");
+    this.load.image('PNC_logo',"assets/Logos/PNC_button_final.png");
+    this.load.image('wells_logo',"assets/Logos/wells fargo-logo_final.png");
+
+
 
     this.load.image('race_track',"assets/racetrack.png");
     this.load.image('race_track_button',"assets/racetrackbutton.png");
