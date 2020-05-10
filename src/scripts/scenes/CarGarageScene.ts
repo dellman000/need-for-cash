@@ -2,6 +2,7 @@ import ExampleObject from '../objects/exampleObject';
 import LoanObject from '../objects/loanObject';
 import FinanceObject from '../objects/financeObject';
 import StoreObject from '../objects/storeObject';
+import NewTurnScreen from '../objects/newTurnObjectScreen';
 //import * as UiTools from '../scenes/phaser-ui-tools.js';
 
 export default class Car_Garage_Scene extends Phaser.Scene {
@@ -32,6 +33,7 @@ loanmoney:number;
   race_track_button: any;
   count: any;
   Loan_Sponsorbutton: Phaser.GameObjects.Image;
+  Turn_info: NewTurnScreen;
 
   
   
@@ -107,7 +109,8 @@ this.money=data.income_start+this.loanmoney;
     
     this.finance_tab= new FinanceObject(this,1960,0,this.income,this.expense,this.credit_score);
     this.store_tab=new  StoreObject(this,-965,100);
-
+    this.Turn_info=new NewTurnScreen(this,1000,-500,this.money,this.income,this.expense,this.loanmoney,this.credit_score);
+    //this.add.image(500,500,'Next_Turn');
     
    /* this.profit_tab=this.add.rectangle(1870,500,50,100 ,0x2BB412);
     this.profit_tab.setInteractive();*/
@@ -189,7 +192,13 @@ this.money=data.income_start+this.loanmoney;
     this.money+=this.income-this.expense;
     this.turn_number++;
     this.money_view.text="CASH\n\n\n"+this.money.toString();
-
+    this.Turn_info.cash=this.money;
+    this.Turn_info.credit_score=this.credit_score;
+    this.Turn_info.expenses=this.expense;
+    this.Turn_info.loan=this.loanmoney;
+    this.Turn_info.move_down=true;
+    this.Turn_info.update_image();
+    //this.Turn_info.move_up=false;
     this.scene.pause('loans_test');
     this.scene.resume('loans_test',{calculate:true});
   }

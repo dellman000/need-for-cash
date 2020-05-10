@@ -29,6 +29,7 @@ export default class PreloadScene extends Phaser.Scene {
     this.load.image('PNC_logo',"assets/Logos/PNC_button_final.png");
     this.load.image('wells_logo',"assets/Logos/wells fargo-logo_final.png");
 
+    this.load.image('Next_Turn',"assets/Next Turn Screen.png")
 
 
     this.load.image('race_track',"assets/racetrack.png");

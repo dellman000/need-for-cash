@@ -35,6 +35,10 @@ export default class LoanObject  {
         
     }
 
+    TakenToFalse(){
+        this.taken=false;
+    }
+
   
 
    
