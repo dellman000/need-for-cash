@@ -192,15 +192,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/need-for-cash/betaassets/turbo4.png"
   },
   {
-    "revision": "6829b549ab8e002ed14e",
-    "url": "/need-for-cash/betagen.main.617a03b373e53a04ad38.bundle.js"
+    "revision": "cfd4c46d1ff917928ede",
+    "url": "/need-for-cash/betagen.main.a6455a6131fd1db4ec56.bundle.js"
   },
   {
     "revision": "8857aeb5de5dfb8b65cf",
     "url": "/need-for-cash/betagen.vendors.a830139833da967256f6.bundle.js"
   },
   {
-    "revision": "0ddd25111fadda62ad603cc1253f597a",
+    "revision": "f84717d5c0dc3f74835f5163c9204249",
     "url": "/need-for-cash/betaindex.html"
   },
   {
