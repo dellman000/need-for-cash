@@ -1,3 +1,10 @@
+import Turbo_CarPartObject from "./carPartsObjects/Turbo_CarPartObject";
+import Body_CarPartObject from "./carPartsObjects/body_CarPartObject";
+import Engine_CarPartObject from "./carPartsObjects/engine_CarPartObject";
+import Tire_CarPartObject from "./carPartsObjects/Tire_CarPartObject";
+import StoredObject_UI from "./Inventory/storedObject_UI";
+import LoanObjectUI from "./LoanObject_UI";
+
 export default class StoreObject extends Phaser.GameObjects.Sprite {
     table_store: Phaser.GameObjects.Group;
     recc: Phaser.GameObjects.Rectangle;
@@ -6,22 +13,22 @@ export default class StoreObject extends Phaser.GameObjects.Sprite {
     Body_coll: Phaser.GameObjects.Text;
     Turbo_coll: Phaser.GameObjects.Text;
     engine1: Phaser.GameObjects.Image;
-    engine2: Phaser.GameObjects.Image;
-    engine3: Phaser.GameObjects.Image;
-    engine4: Phaser.GameObjects.Image;
     tire1: Phaser.GameObjects.Image;
-    tire2: Phaser.GameObjects.Image;
-    tire3: Phaser.GameObjects.Image;
-    tire4: Phaser.GameObjects.Image;
+    
     turbo1: Phaser.GameObjects.Image;
-    turbo2: Phaser.GameObjects.Image;
-    turbo3: Phaser.GameObjects.Image;
-    turbo4: Phaser.GameObjects.Image;
+    
     body1: Phaser.GameObjects.Image;
-    body2: Phaser.GameObjects.Image;
-    body3: Phaser.GameObjects.Image;
-    body4: Phaser.GameObjects.Image;
     car_speed: number;
+    StoreInventory: (Engine_CarPartObject | Body_CarPartObject | Tire_CarPartObject | Turbo_CarPartObject)[];
+    shoppingCart: (Engine_CarPartObject | Body_CarPartObject | Tire_CarPartObject | Turbo_CarPartObject)[];
+    ENGINE_ROW: number;
+    BODY_ROW: number;
+    TIRE_ROW: number;
+    TURBO_ROW: number;
+    ITEM_GAP:number
+    test: StoredObject_UI;
+    UIgroup: Phaser.GameObjects.Group;
+
 
     constructor(scene: Phaser.Scene, x: number, y: number) {
         super(scene, x, y, 'store_screen');
@@ -29,124 +36,97 @@ export default class StoreObject extends Phaser.GameObjects.Sprite {
         scene.sys.displayList.add(this);
         this.setInteractive();
         this.setOrigin(0,0);
-        this.on('pointerdown',this.move,this);
-        this.car_speed = 0;
-        
-
-
         this.engine_coll=this.scene.add.text(-900,200,'Engines ',{font:'50px Arial',fill:'white'});
         this.engine_coll.setOrigin(0,0);
-        this.engine1=this.scene.add.image(-700,150,'engine1');
-        this.engine1.setOrigin(0,0);
-        this.engine1.setInteractive();
-        this.engine1.on('pointerdown', () => {this.car_speed += 5});
-        this.engine2=this.scene.add.image(-530,150,'engine2');
-        this.engine2.setOrigin(0,0);
-        this.engine2.setInteractive();
-        this.engine2.on('pointerdown', () => {this.car_speed += 10});
-        this.engine3=this.scene.add.image(-360,150,'engine3');
-        this.engine3.setOrigin(0,0);
-        this.engine3.setInteractive();
-        this.engine3.on('pointerdown', () => {this.car_speed += 20});
-        this.engine4=this.scene.add.image(-190,150,'engine4');
-        this.engine4.setOrigin(0,0);
-        this.engine4.setInteractive();
-        this.engine4.on('pointerdown', () => {this.car_speed += 40});
-
         this.Tires_coll=this.scene.add.text(-900,400,'Tires ',{font:'50px Arial',fill:'white'});
-        this.Tires_coll.setOrigin(0,0);
-        this.tire1=this.scene.add.image(-700,350,'tire1');
-        this.tire1.setOrigin(0,0);
-        this.tire1.setInteractive();
-        this.tire1.on('pointerdown', () => {this.car_speed += 2});
-        this.tire2=this.scene.add.image(-530,350,'tire2');
-        this.tire2.setOrigin(0,0);
-        this.tire2.setInteractive();
-        this.tire2.on('pointerdown', () => {this.car_speed += 4});
-        this.tire3=this.scene.add.image(-360,350,'tire3');
-        this.tire3.setOrigin(0,0);
-        this.tire3.setInteractive();
-        this.tire3.on('pointerdown', () => {this.car_speed += 8});
-        this.tire4=this.scene.add.image(-190,350,'tire4');
-        this.tire4.setOrigin(0,0);
-        this.tire4.setInteractive();
-        this.tire4.on('pointerdown', () => {this.car_speed += 16});
-
+        this.Tires_coll.setOrigin(0,0);       
         this.Turbo_coll=this.scene.add.text(-900,600,'Turbo ',{font:'50px Arial',fill:'white'});
         this.Turbo_coll.setOrigin(0,0);
-        this.turbo1=this.scene.add.image(-700,550,'turbo1');
-        this.turbo1.setOrigin(0,0);
-        this.turbo1.setInteractive();
-        this.turbo1.on('pointerdown', () => {this.car_speed += 4});
-        this.turbo2=this.scene.add.image(-530,550,'turbo2');
-        this.turbo2.setOrigin(0,0);
-        this.turbo2.setInteractive();
-        this.turbo2.on('pointerdown', () => {this.car_speed += 8});
-        this.turbo3=this.scene.add.image(-360,550,'turbo3');
-        this.turbo3.setOrigin(0,0);
-        this.turbo3.setInteractive();
-        this.turbo3.on('pointerdown', () => {this.car_speed += 16});
-        this.turbo4=this.scene.add.image(-190,550,'turbo4');
-        this.turbo4.setOrigin(0,0);
-        this.turbo4.setInteractive();
-        this.turbo4.on('pointerdown', () => {this.car_speed += 32});
-
         this.Body_coll=this.scene.add.text(-900,800,'Body ',{font:'50px Arial',fill:'white'});
-        this.Body_coll.setOrigin(0,0);
-        this.body1=this.scene.add.image(-700,750,'body1');
-        this.body1.setOrigin(0,0);
-        this.body1.setInteractive();
-        this.body1.on('pointerdown', () => {this.car_speed += 2});
-        this.body2=this.scene.add.image(-530,750,'body2');
-        this.body2.setOrigin(0,0);
-        this.body2.setInteractive();
-        this.body2.on('pointerdown', () => {this.car_speed += 4});
-        this.body3=this.scene.add.image(-360,750,'body3');
-        this.body3.setOrigin(0,0);
-        this.body3.setInteractive();
-        this.body3.on('pointerdown', () => {this.car_speed += 8});
-        this.body4=this.scene.add.image(-190,750,'body4');
-        this.body4.setOrigin(0,0);
-        this.body4.setInteractive();
-        this.body4.on('pointerdown', () => {this.car_speed += 16});
-
-        
-
-        
+        this.Body_coll.setOrigin(0,0);      
         this.table_store=this.scene.add.group();
         this.table_store.add(this);
         this.table_store.add(this.engine_coll);
-        this.table_store.add(this.engine1);
-        this.table_store.add(this.engine2);
-        this.table_store.add(this.engine3);
-        this.table_store.add(this.engine4);
+        //this.table_store.add(this.engine1);
         this.table_store.add(this.Tires_coll);
-        this.table_store.add(this.tire1);
-        this.table_store.add(this.tire2);
-        this.table_store.add(this.tire3);
-        this.table_store.add(this.tire4);
-        this.table_store.add(this.turbo1);
-        this.table_store.add(this.turbo2);
-        this.table_store.add(this.turbo3);
-        this.table_store.add(this.turbo4);
+        //this.table_store.add(this.tire1);
+        //this.table_store.add(this.turbo1);
         this.table_store.add(this.Turbo_coll);
         this.table_store.add(this.Body_coll);
-        this.table_store.add(this.body1);
-        this.table_store.add(this.body2);
-        this.table_store.add(this.body3);
-        this.table_store.add(this.body4);
+        //this.table_store.add(this.body1);
+        this.StoreInventory = new Array<(Engine_CarPartObject|Body_CarPartObject|Tire_CarPartObject|Turbo_CarPartObject)>(10);
+        this.shoppingCart=new Array<(Engine_CarPartObject|Body_CarPartObject|Tire_CarPartObject|Turbo_CarPartObject)>(10)
+        this.createStoreInventory(this.StoreInventory);
+        this.createStoreUI(this.StoreInventory);
+        this.on('pointerdown',this.move,this);
+       
     }
 
+    createStoreInventory(Array_list:(Engine_CarPartObject|Body_CarPartObject|Tire_CarPartObject|Turbo_CarPartObject)[]  ){
+        for(let i =1;i<=4;i++){
+            let x=new Engine_CarPartObject("Engine_Mk"+String(i),10,100);
+            Array_list[i]=x;
+           }
+           for(let i=5;i<=8;i++){
+            let x=new Body_CarPartObject("Tire_Mk"+String(i-4),10,100);
+            Array_list[i]=x;
+           }
+           for(let i=9;i<=12;i++){
+            let x=new Tire_CarPartObject("Turbo_Mk"+String(i-8),10,100);
+            Array_list[i]=x;
+           }
+           for(let i=13;i<=16;i++){
+            let x=new Turbo_CarPartObject("Body_Mk"+String(i-12),10,100);
+            Array_list[i]=x;
+           }
+    }
+
+
+    createStoreUI(Array_list:(Engine_CarPartObject|Body_CarPartObject|Tire_CarPartObject|Turbo_CarPartObject)[]){
+        let ITEM_GAP=180;
+        let ENGINE_ROW=150;
+        let BODY_ROW=350;
+        let TIRE_ROW=550;
+        let TURBO_ROW=750;
+         
+        for(let i =1;i<=4;i++){
+            let x = new StoredObject_UI(this.scene,-900+(i*ITEM_GAP),ENGINE_ROW,i,Array_list[i]);
+            x.on('pointerdown',()=>{this.logItem(x);});
+            x.setOrigin(0,0);
+            this.table_store.add(x);
+            x.setInteractive();
+           }
+           for(let i=1;i<=4;i++){
+            let x=new StoredObject_UI(this.scene,-900+(i*ITEM_GAP),BODY_ROW,i+4,Array_list[i+4]);
+            x.on('pointerdown',()=>{this.logItem(x);});
+            x.setOrigin(0,0);
+            x.setInteractive();
+            this.table_store.add(x);
+           }
+           for(let i=1;i<=4;i++){
+            let x=new StoredObject_UI(this.scene,-900+(i*ITEM_GAP),TIRE_ROW,i+8,Array_list[i+8]);
+            x.on('pointerdown',()=>{this.logItem(x);});
+            x.setOrigin(0,0);
+            x.setInteractive();
+            this.table_store.add(x);
+           }
+           for(let i=1;i<=4;i++){
+            let x=new StoredObject_UI(this.scene,-900+(i*ITEM_GAP),TURBO_ROW,i+12,Array_list[i+12]);
+            x.on('pointerdown',()=>{this.logItem(x);});
+            x.setOrigin(0,0);
+            x.setInteractive();
+            this.table_store.add(x);
+           }
+    }
    move(){
-     
        while(this.x<50){
-       
         this.table_store.incX(50);
        }
-      
-       this.table_store.setDepth(1);
-       
-    
+       this.table_store.setDepth(3);
+   }
+
+   logItem(x:StoredObject_UI){
+    console.log(x.index);
    }
    
 
