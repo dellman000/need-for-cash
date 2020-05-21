@@ -4,6 +4,7 @@ import FinanceObject from '../objects/financeObject';
 import StoreObject from '../objects/storeObject';
 import NewTurnScreen from '../objects/newTurnObjectScreen';
 import InventoryObject from '../objects/Inventory/InventoryObject';
+import CarObject from '../objects/carObject';
 //import * as UiTools from '../scenes/phaser-ui-tools.js';
 
 export default class Car_Garage_Scene extends Phaser.Scene {
@@ -36,6 +37,8 @@ loanmoney:number;
   Loan_Sponsorbutton: Phaser.GameObjects.Image;
   Turn_info: NewTurnScreen;
   inventory: InventoryObject;
+  UserCar: CarObject;
+  inventory_button: Phaser.GameObjects.Image;
 
   
   
@@ -90,7 +93,9 @@ this.money=data.income_start+this.loanmoney;
     this.money_view.setOrigin(0,0);
     
   
-
+  this.inventory_button=this.add.image(300,900,'inventory_button').setDepth(2);
+  this.inventory_button.setInteractive();
+  this.inventory_button.on('pointerdown',()=>{this.inventory.movefront() }  )
   
 
 
@@ -112,8 +117,9 @@ this.money=data.income_start+this.loanmoney;
     this.finance_tab= new FinanceObject(this,1960,0,this.income,this.expense,this.credit_score);
     this.store_tab=new  StoreObject(this,-965,100);
     this.Turn_info=new NewTurnScreen(this,1000,-500,this.money,this.income,this.expense,this.loanmoney,this.credit_score);
-    this.inventory=new InventoryObject(this,1000,500);
+    this.inventory=new InventoryObject(this,-600,500);
     
+    this.UserCar=new CarObject(this,400,50,this.inventory.ReturnEngine(),this.inventory.ReturnBody(),this.inventory.ReturnTire(),this.inventory.ReturnTurbo());
     //this.add.image(500,500,'Next_Turn');
     
    /* this.profit_tab=this.add.rectangle(1870,500,50,100 ,0x2BB412);
@@ -186,11 +192,16 @@ this.money=data.income_start+this.loanmoney;
     if (this.store_tab.x>-965){
       this.store_tab.table_store.incX(-1050);
     }
-    this.scene.bringToTop('Car_Garage');
+    this.scene.bringToTop('Car_Garage'); 
+    this.UserCar.engine=this.inventory.ReturnEngine();
+    this.UserCar.Tire=this.inventory.ReturnTire();
+    this.UserCar.Turbo=this.inventory.ReturnTurbo();
+    this.UserCar.Body=this.inventory.ReturnBody();
+    this.UserCar.updateBody();  
+    this.inventory.moveBack();
+  }
 
   
-  
-  }
 
   takemoney(){
     this.money+=this.income-this.expense;

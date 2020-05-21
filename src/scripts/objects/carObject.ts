@@ -16,7 +16,7 @@ export default class CarObject extends Phaser.GameObjects.Sprite {
         
         
         
-        super(scene, x, y, 'car_1');
+        super(scene, x, y, 'body1');
         scene.sys.updateList.add(this);
         scene.sys.displayList.add(this);
 
@@ -27,9 +27,17 @@ export default class CarObject extends Phaser.GameObjects.Sprite {
        
         //this.setVisible(true);
         this.setInteractive();
+        this.setOrigin(0,0);
         //this.speed=engine_power+handeling+hullstrenght+boots_gain;
         
         
+    }
+    updateBody(){
+        for(let i=1;i<=4;i++){
+            if(this.Body.name=="Body_Mk"+String(i)){
+                this.setTexture("body"+String(i));
+            }
+        }
     }
    
 

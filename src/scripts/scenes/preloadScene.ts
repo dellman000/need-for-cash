@@ -49,6 +49,19 @@ export default class PreloadScene extends Phaser.Scene {
       this.load.image('Body_Mk'+String(i),"assets/body"+String(i)+".png");
       this.load.image('Turbo_Mk'+String(i),"assets/turbo"+String(i)+".png");
     }
+    this.load.image('inventory_button',"assets/inventory Screen/inventorybutton_new.png");
+
+
+    for(let i=1;i<=4;i++){
+      this.load.image('body'+String(i),"assets/Car_levels/car_level"+String(i)+".png" );
+    }
+
+
+    this.load.image('Item_frame','assets/inventory Screen/Itemframe.png');
+    this.load.image('green_button',"assets/inventory Screen/green_button.png");
+    this.load.image('red_button',"assets/inventory Screen/red_button.png");
+    this.load.image('Item_info',"assets/inventory Screen/info_panel.png");
+    this.load.image('EquipItem',"assets/inventory Screen/EquipItem.png");
 
     /*
     this.load.image('Engine_Mk1',"assets/engine1.png");
