@@ -1,25 +1,15 @@
-# educational-phaser-game-template
+# Need For Cash
 
-Template for designing educational Phaser Games
+Kendell Rennie and Luis Figueroa
 
-# Important Files
+# Blurb
+Manage your racing team to victory. Make sure they are well funded and have everything they need to win. Avoid scams ,and bad investments  to keep your racer's future safe. This is the only racing game where you actually don't race. Instead you are the racer's financial agent. Think your financial skills are up to par, this game will put them to the test. This is a short game that helps improve your financial skills in spending and budgeting your money properly. Upgrade your car, pick a loan and a sponsor for your racer and switch between both the garage, office and race track.
 
-These files are critical for coding your game:
+# Basic Instructions
 
-* [src/scripts/game.ts](src/scripts/game.ts): The starting file of your game.
-
-These files are critical for documenting your game:
- 
-* [egdd.md](egdd.md): The educational game design document describing this game in more depth.
-
-These files are critical for configuring the metadata of your game and should be updated:
-
-* [package.json](package.json): Some configuration settings that you should adjust for your game: `name`, `description`, `homepage`, `author`, `keywords`, `repository`.
-* [config/webpack.common.js](config/webpack.common.js): Change the `myGameName` for your game near the TODO.
-* [config/pwa/manifest.json](pwa/manifest.json): Some configuration settings for bundling your game as a Progressive Web App, particularly should change `short_name` and `name`.
-
-You should create the following files:
-
-* [config/pwa/icons/icons-192.png](config/pwa/icons/icons-192.png): This is a 192x192 pixel version of your game's icon.
-* [config/pwa/icons/icons-512.png](config/pwa/icons/icons-512.png): This is a 512x512 pixel version of your game's icon.
-* [src/favicon.ico](src/favicon/ico): The Favicon for your game.
+Click the orange tab to view your loans
+Click the brown tab to view car upgrades
+Use the Next turn button to go to the next level
+Use the green tab to view your monthly budget
+Click the blue button to head to the race track
+Click race to race your car (green)
